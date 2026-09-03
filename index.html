@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>102-maktab pedagoglari</title>
+    <style>
+        /* AGAR style.css BO'LMASA, QUYIDAGI STIL ISHLAYDI */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea);
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .school {
+            font-size: 25px;
+            letter-spacing: 3px;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+        .title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .slogan {
+            font-size: 25px;
+            font-style: italic;
+            opacity: 0.7;
+        }
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .menu button {
+            padding: 12px 22px;
+            border: 2px solid #1a237e;
+            border-radius: 10px;
+            background: #fff;
+            color: #1a237e;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .menu button:hover {
+            background: #e8eaf6;
+            transform: translateY(-2px);
+        }
+        .menu button.active {
+            background: #1a237e;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(26,35,126,0.4);
+        }
+        .bolim {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.4s ease;
+        }
+        .bolim.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section-title {
+            text-align: center;
+            font-size: 22px;
+            color: #1a237e;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #1a237e;
+            display: inline-block;
+            width: 100%;
+        }
+        .teachers {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+        .teacher {
+            background: #fafafa;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+        .teacher:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #1a237e;
+        }
+        .teacher img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #1a237e;
+            margin-bottom: 15px;
+            background: #e8eaf6;
+        }
+        .teacher h3 {
+            font-size: 16px;
+            color: #1a237e;
+            margin-bottom: 8px;
+        }
+        .teacher p {
+            font-size: 14px;
+            color: #555;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1a237e;
+            color: #fff;
+            font-size: 14px;
+            font-style: italic;
+        }
+        @media (max-width: 600px) {
+            .teachers {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .teacher img {
+                width: 100px;
+                height: 100px;
+            }
+            .title { font-size: 20px; }
+            .menu button { padding: 10px 16px; font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <div class="school">102-SONLI UMUMTA'LIM MAKTABI</div>
+        <div class="title">OLIY MA'LUMOTLI PEDAGOG XODIMLAR</div>
+        <div class="slogan">"Kelajak avlod ta'limi yo'lida birgalikda!"</div>
+    </header>
+
+
+    <div class="menu">
+        <button class="active" onclick="bolim('rahbariyat', this)">🏫 Maktab rahbariyati</button>
+        <button onclick="bolim('aniq', this)">📐 Oliy toifali</button>
+        <button onclick="bolim('tabiiy', this)">🧬 Birinchi toifali</button>
+        <button onclick="bolim('filologiya', this)">📚 Xalqaro va milliy sertifikatlar</button>
+    </div>
+
+
+    <!-- ========== MAKTAB RAHBARIYATI ========== -->
+    <div id="rahbariyat" class="bolim active">
+        <h2 class="section-title">🏫 MAKTAB RAHBARIYATI</h2>
+        <div class="teachers">
+
+            <div class="teacher">
+                <img src="ustoz1.jpg" alt="JUMAYEV ELDOR" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Jumayev+Eldor&background=1a237e&color=fff&size=150'">
+                <h3>MIRZAJONOVA RA'NO LUTFULLAYEVNA</h3>
+                <p>Maktab direktori</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz2.jpg" alt="XOLIQOVA NARGIZA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Xoliqova+Nargiza&background=c62828&color=fff&size=150'">
+                <h3>SABIROVA FARIDA TESHABAYEVNA</h3>
+                <p>O'quv ishlari boy'icha direktor o'rinbosari</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz3.jpg" alt="MUSUPOVA DILFUZA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Musupova+Dilfuza&background=2e7d32&color=fff&size=150'">
+                <h3>KURBANOVA SAIDAXON ASQAROVNA</h3>
+                <p>Ma'naviy va marifiy ishlar boyicha direktor o'rinbosari</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz4.jpg" alt="TURSUNOV JAMSHID" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Tursunov+Jamshid&background=e65100&color=fff&size=150'">
+                <h3>KARIMBERDIYEVA FOTIMA ZAKIRJANOVNA</h3>
+                <p>O'quv ishlari boy'icha direktor o'rinbosari</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz99.jpg" alt="TURSUNOV JAMSHID" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Tursunov+Jamshid&background=e65100&color=fff&size=150'">
+                <h3>XAKULOVA NARGIZA ABDUMANOBOVNA</h3>
+                <p>O'quv ishlari boy'icha direktor o'rinbosari</p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div id="aniq" class="bolim">
+        <h2 class="section-title">📐 OLIY TOIFALI</h2>
+        <div class="teachers">
+
+            <div class="teacher">
+                <img src="ustoz5.jpg" alt="SHODIYEVA DILFUZA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Shodiyeva+Dilfuza&background=1565c0&color=fff&size=150'">
+                <h3>SHODIYEVA DILFUZA ISAKOVNA</h3>
+                <p>Rus tili fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz6.jpg" alt="KARIMOVA GULNORA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Karimova+Gulnora&background=6a1b9a&color=fff&size=150'">
+                <h3>KARIMOVA GULNORA NIG'MATALLANAJOVNA</h3>
+                <p>Ingliz tili fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz7.jpg" alt="IKROMOV G'OLIB" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Ikromov+Golib&background=00838f&color=fff&size=150'">
+                <h3>SOIPOVA SHAXNOZA OZODOVNA</h3>
+                <p>Matematika fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz8.jpg" alt="FAYZIYEVA SHOHISTA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=I+G&background=ad1457&color=fff&size=150'">
+                <h3>IKROMOV G'OLIB TOLIBJONOVICH</h3>
+                <p>Kimyo fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz9.jpg" alt="FAYZIYEVA SHOHISTA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Fayziyeva+Shohista&background=ad1457&color=fff&size=150'">
+                <h3>FAYZIYEVA SHOISTA RAMZIDDONOVNA</h3>
+                <p>Boshlang'ich sinf o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz10.jpg" alt="FAYZIYEVA SHOHISTA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Fayziyeva+Shohista&background=ad1457&color=fff&size=150'">
+                <h3>ORTIQOVA YORQINOY ABDULXOQIM QIZI</h3>
+                <p>Jismoniy tarbiya fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz11.jpg" alt="FAYZIYEVA SHOHISTA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Fayziyeva+Shohista&background=ad1457&color=fff&size=150'">
+                <h3>TOSHEVA NARGIZA AXROROVNA</h3>
+                <p>Ingliz tili fani o'qituvchisi</p>
+            </div>
+
+
+            <div class="teacher">
+                <img src="ustoz12.jpg" alt="FAYZIYEVA SHOHISTA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Fayziyeva+Shohista&background=ad1457&color=fff&size=150'">
+                <h3>NAZAROVA SEVARA SAMIGOVNA</h3>
+                <p>Ingliz tili fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz13.jpg" alt="FAYZIYEVA SHOHISTA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Fayziyeva+Shohista&background=ad1457&color=fff&size=150'">
+                <h3>SUYUNOV LATIF ABDUMANNON O'G'LI</h3>
+                <p>Kimyo fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz14.jpg" alt="FAYZIYEVA SHOHISTA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Fayziyeva+Shohista&background=ad1457&color=fff&size=150'">
+                <h3>SAMADOVA SHOHIDA SAIDOVNA </h3>
+                <p>Ona tili fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz15.jpeg" alt="FAYZIYEVA SHOHISTA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Fayziyeva+Shohista&background=ad1457&color=fff&size=150'">
+                <h3>ABDUXALILOVA NASIBA ABDUQAHHAROVNA</h3>
+                <p>Rus tili fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz16.jpg" alt="FAYZIYEVA SHOHISTA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Fayziyeva+Shohista&background=ad1457&color=fff&size=150'">
+                <h3>SODIQOVA KAMOLA RASHIDOVNA</h3>
+                <p>Ingliz tili fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz17.jpg" alt="FAYZIYEVA SHOHISTA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Fayziyeva+Shohista&background=ad1457&color=fff&size=150'">
+                <h3>MAXAMATOVA FERUZA AKMAL QIZI</h3>
+                <p>Texnologiya fani o'qituvchisi</p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ========== BIRINCHI TOIFALI ========== -->
+    <div id="tabiiy" class="bolim">
+        <h2 class="section-title">🧬 BIRINCHI TOIFALI</h2>
+        <div class="teachers">
+
+            <div class="teacher">
+                <img src="images/ustoz18.jpg" alt="RAHIMOVA SHAXNOZA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Rahimova+Shaxnoza&background=2e7d32&color=fff&size=150'">
+                <h3>GANIYEVA DILOROM</h3>
+                <p>Rus tili fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz19.jpg" alt="YO'LDOSHEVA NARGIZA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Yoldosheva+Nargiza&background=0277bd&color=fff&size=150'">
+                <h3>ABDUAZIMOVA SHAHNOZA SINOYEVNA</h3>
+                <p>Ingliz tili fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="images/ustoz20.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>NAZAROVA E’TIBOR BURHONIDDINOVNA</h3>
+                <p>Tarbiya fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="images/ustoz21.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>HUSNIDDINOVA GULNOZA ZOHIDJON QIZI</h3>
+                <p> Boshlang'ich sinf o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz22.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>TURG‘UNOVA MOHIZABON MAHMUDJON QIZI</h3>
+                <p>Matematika fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz23.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>AHMETOVA KOMUNA ARIBJANOVNA</h3>
+                <p>Boshlang'ich sinf o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="images/ustoz24.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>TURG‘UNBOYEV JAVOHIR MAHMUDJON O‘G‘LI</h3>
+                <p>MAtematika fani o'qituvchisi</p>
+            </div>
+            
+            <div class="teacher">
+                <img src="ustoz25.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>DINIKULOVA NODIRA ABDUNABEYEVNA</h3>
+                <p>Tarix fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz26.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>GILYAZOVA FARIDA ZINATOVNA</h3>
+                <p>Rus tili fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="images/ustoz27.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>AZAMATOVA DILDORA ABDUMANNONOVNA</h3>
+                <p>Boshlang'ich sinf o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="images/ustoz28.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>XUDOYBERDIYEVA SAODAT SAIDKAMOLOVNA</h3>
+                <p>Boshlang'ich sinf o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz29.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>DJAPAROVA UMIDA XASANOVNA</h3>
+                <p>Boshlang'ich sinf o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="images/ustoz30.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>ISMOILOVA GULNORA XOJIMURODOVNA</h3>
+                <p>Biologiya fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="images/ustoz31.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>IBRAGIMOVA MATLUBA ISAKOVNA</h3>
+                <p>Matematika fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="images/ustoz32.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>G‘AFURJANOVA IRODA MIRJALIEVNA</h3>
+                <p>Boshlang'ich sinf o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="images/ustoz33.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>IMINOVA MAVLUDA ABDUNABEYEVNA</h3>
+                <p>Boshlang'ich sinf o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="images/ustoz34.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>MIRJALILOVA ZILOLA SHAVKATOVNA</h3>
+                <p>Boshlang'ich sinf o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="images/ustoz35.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>SAIDOVA ZUHRA MUHAMMADJONOVNA</h3>
+                <p>Boshlang'ich sinf o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz36.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>XOMITOVA XULKAR AHMATOVNA</h3>
+                <p>Ona tili fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz37.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>SHUKUROVA SARVINOZ SHUXRAT QIZI</h3>
+                <p>Ingliz tili fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz38.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>AKROMOVA AZIZA DAVLATOVNA</h3>
+                <p>Iqtisod fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="ustoz39.jpg" alt="QODIROVA MALIKA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qodirova+Malika&background=ef6c00&color=fff&size=150'">
+                <h3>VOHIDOVA VAZIRA MAHMUDOVNA</h3>
+                <p>Ingliz tili fani o'qituvchisi</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- ========== XALQARO VA MILLIY SERTIFIKATLAR ========== -->
+    <div id="filologiya" class="bolim">
+        <h2 class="section-title">📚 XALQARO VA MILLIY SERTIFIKATLAR</h2>
+        <div class="teachers">
+
+            <div class="teacher">
+                <img src="images/ustoz12.jpg" alt="QURBONOVA NILUFAR" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Qurbonova+Nilufar&background=c62828&color=fff&size=150'">
+                <h3>QURBONOVA NILUFAR</h3>
+                <p>O'zbek tili va adabiyoti</p>
+            </div>
+
+            <div class="teacher">
+                <img src="images/ustoz13.jpg" alt="SAMATOVA ZIYODA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Samatova+Ziyoda&background=283593&color=fff&size=150'">
+                <h3>SAMATOVA ZIYODA</h3>
+                <p>Rus tili va adabiyoti</p>
+            </div>
+
+            <div class="teacher">
+                <img src="images/ustoz14.jpg" alt="XOLMATOV BEKZOD" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Xolmatov+Bekzod&background=4527a0&color=fff&size=150'">
+                <h3>XOLMATOV BEKZOD</h3>
+                <p>Tarix fani o'qituvchisi</p>
+            </div>
+
+            <div class="teacher">
+                <img src="images/ustoz15.jpg" alt="ERGASHEVA DILNOZA" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Ergasheva+Dilnoza&background=00695c&color=fff&size=150'">
+                <h3>ERGASHEVA DILNOZA</h3>
+                <p>Huquq fani o'qituvchisi</p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <footer>
+        📖 Ustozlar – millat tayanchi, kelajak bunyodkorlari!
+    </footer>
+
+</div>
+
+
+<script>
+function bolim(nomi, tugma) {
+    // Tugmalardan active olib tashlash
+    var btns = document.querySelectorAll(".menu button");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].classList.remove("active");
+    }
+    tugma.classList.add("active");
+
+    // Bo'limlarni yashirish/ko'rsatish
+    var bolimlar = document.querySelectorAll(".bolim");
+    for (var j = 0; j < bolimlar.length; j++) {
+        bolimlar[j].classList.remove("active");
+    }
+    document.getElementById(nomi).classList.add("active");
+}
+</script>
+
+</body>
+</html>
